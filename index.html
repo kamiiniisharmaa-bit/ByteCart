@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ByteCart · ecom</title>
+  <!-- Font Awesome for icons (optional but adds flavor) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background: #f4f7fb;  /* soft blue-grey background */
+      color: #0f1a2c;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== HEADER / NAV ===== */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 20px 0;
+      border-bottom: 1px solid #dce3ec;
+      background: #ffffff;
+      border-radius: 0 0 28px 28px;
+      box-shadow: 0 4px 12px rgba(0, 20, 30, 0.04);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #0f1a2c;
+      text-decoration: none;
+    }
+
+    .logo i {
+      color: #1e7b85;  /* teal accent */
+      font-size: 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1e2b3c;
+      transition: color 0.2s;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #1e7b85;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-actions i {
+      font-size: 1.4rem;
+      color: #1e2b3c;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .nav-actions i:hover {
+      color: #1e7b85;
+    }
+
+    .cart-badge {
+      position: relative;
+    }
+
+    .cart-badge::after {
+      content: '3';
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background: #1e7b85;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 30px;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 48px 0 56px;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      color: #0f1a2c;
+    }
+
+    .hero-content h1 span {
+      color: #1e7b85;
+      background: linear-gradient(145deg, #1e7b85, #14646d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #3a4a5e;
+      margin: 20px 0 28px;
+      max-width: 480px;
+    }
+
+    .hero-btn {
+      background: #0f1a2c;
+      color: white;
+      border: none;
+      padding: 14px 38px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 20px rgba(15, 26, 44, 0.08);
+    }
+
+    .hero-btn i {
+      font-size: 1rem;
+    }
+
+    .hero-btn:hover {
+      background: #1a2a3e;
+      transform: scale(1.02);
+      box-shadow: 0 12px 28px rgba(15, 26, 44, 0.15);
+    }
+
+    .hero-image {
+      flex: 1 1 380px;
+      background: #d1dce8;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600"><rect width="800" height="600" fill="%23d4e0ec"/><circle cx="400" cy="300" r="120" fill="%23b2c7db" opacity="0.5"/><circle cx="280" cy="200" r="60" fill="%239ab1ca" opacity="0.4"/><circle cx="520" cy="400" r="80" fill="%237f9bb8" opacity="0.3"/><path d="M200 450 L600 450 L500 200 L300 200 Z" fill="%236383a3" opacity="0.2"/></svg>');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.95;
+      transition: 0.3s;
+    }
+
+    /* ===== FEATURED CATEGORIES ===== */
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 48px 0 24px;
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #0f1a2c;
+    }
+
+    .section-title i {
+      color: #1e7b85;
+      font-size: 1.8rem;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .category-card {
+      background: white;
+      padding: 20px 12px;
+      border-radius: 24px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      transition: 0.2s;
+      border: 1px solid #e6ecf3;
+    }
+
+    .category-card:hover {
+      transform: translateY(-6px);
+      border-color: #b6ccdd;
+      box-shadow: 0 12px 24px -8px rgba(0,0,0,0.08);
+    }
+
+    .category-card i {
+      font-size: 2.6rem;
+      color: #1e2b3c;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .category-card span {
+      font-weight: 500;
+      color: #0f1a2c;
+    }
+
+    /* ===== PRODUCT GRID ===== */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 28px;
+      margin: 16px 0 56px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      transition: all 0.25s ease;
+      border: 1px solid #e6ecf3;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      border-color: #b6ccdd;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
+    }
+
+    .product-img {
+      height: 200px;
+      background: #eef2f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.3s;
+    }
+
+    .product-card:hover .product-img img {
+      transform: scale(1.02);
+    }
+
+    .product-info {
+      padding: 18px 16px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-info h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #0f1a2c;
+    }
+
+    .product-info .desc {
+      font-size: 0.9rem;
+      color: #4a5a6e;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .product-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+
+    .price {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #0f1a2c;
+    }
+
+    .add-btn {
+      background: #edf2f8;
+      border: none;
+      border-radius: 40px;
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+      color: #1e2b3c;
+      cursor: pointer;
+      transition: 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .add-btn:hover {
+      background: #1e7b85;
+      color: white;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      border-top: 1px solid #dce3ec;
+      padding: 32px 0 24px;
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      color: #2d4055;
+    }
+
+    .footer span i {
+      color: #1e7b85;
+      margin-right: 6px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #2d4055;
+      transition: 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #0f1a2c;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 700px) {
+      .hero-content h1 {
+        font-size: 2.3rem;
+      }
+      .navbar {
+        flex-direction: column;
+        gap: 14px;
+        align-items: stretch;
+        border-radius: 0 0 18px 18px;
+      }
+      .nav-links {
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .nav-actions {
+        justify-content: center;
+      }
+      .hero {
+        padding: 20px 0 32px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- ===== NAV ===== -->
+    <header class="navbar">
+      <a href="#" class="logo">
+        <i class="fas fa-cube"></i> ByteCart
+      </a>
+      <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+      </div>
+      <div class="nav-actions">
+        <i class="fas fa-search"></i>
+        <i class="fas fa-heart"></i>
+        <span class="cart-badge"><i class="fas fa-shopping-bag"></i></span>
+      </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Next‑gen <span>ByteCart</span> <br />marketplace</h1>
+        <p>Explore curated tech, gadgets, and lifestyle — all at the speed of light.</p>
+        <button class="hero-btn">
+          <i class="fas fa-bolt"></i> Start exploring
+        </button>
+      </div>
+      <div class="hero-image">
+        <img 
+          src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=center&auto=format" 
+          alt="ByteCart hero: colorful ecommerce" 
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <!-- ===== CATEGORIES ===== -->
+    <div class="section-title">
+      <i class="fas fa-th-large"></i> Shop by category
+    </div>
+    <div class="category-grid">
+      <div class="category-card"><i class="fas fa-laptop"></i><span>Electronics</span></div>
+      <div class="category-card"><i class="fas fa-tshirt"></i><span>Fashion</span></div>
+      <div class="category-card"><i class="fas fa-couch"></i><span>Home</span></div>
+      <div class="category-card"><i class="fas fa-book-open"></i><span>Books</span></div>
+      <div class="category-card"><i class="fas fa-futbol"></i><span>Sports</span></div>
+      <div class="category-card"><i class="fas fa-gamepad"></i><span>Gaming</span></div>
+    </div>
+
+    <!-- ===== PRODUCT GRID with diverse images ===== -->
+    <div class="section-title">
+      <i class="fas fa-fire"></i> Trending now
+    </div>
+    <div class="product-grid">
+
+      <!-- product 1 -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=300&fit=crop&crop=center&auto=format" alt="Instant Camera" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <h3>Polaroid Now</h3>
+          <div class="desc">Instant film camera, black</div>
+          <div class="product-bottom">
+            <span class="price">$109</span>
+            <button class="add-btn"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- product 2 -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400&h=300&fit=crop&crop=center&auto=format" alt="Smartwatch" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <h3>FitPulse 3</h3>
+          <div class="desc">Fitness tracker, midnight blue</div>
+          <div class="product-bottom">
+            <span class="price">$79</span>
+            <button class="add-btn"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- product 3 -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=400&h=300&fit=crop&crop=center&auto=format" alt="Sneakers" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <h3>Air Max Pulse</h3>
+          <div class="desc">Running sneakers, white/red</div>
+          <div class="product-bottom">
+            <span class="price">$149</span>
+            <button class="add-btn"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- product 4 -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop&crop=center&auto=format" alt="Minimalist Watch" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <h3>Nordic Steel</h3>
+          <div class="desc">Minimalist watch, silver</div>
+          <div class="product-bottom">
+            <span class="price">$189</span>
+            <button class="add-btn"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- product 5 -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400&h=300&fit=crop&crop=center&auto=format" alt="Wireless earbuds" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <h3>SoundBuds Pro</h3>
+          <div class="desc">Noise cancelling, white</div>
+          <div class="product-bottom">
+            <span class="price">$59</span>
+            <button class="add-btn"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- product 6 -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=400&h=300&fit=crop&crop=center&auto=format" alt="Motorcycle helmet" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <h3>RideX Carbon</h3>
+          <div class="desc">Helmet, matte black</div>
+          <div class="product-bottom">
+            <span class="price">$229</span>
+            <button class="add-btn"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <span><i class="fas fa-cube"></i> ByteCart &mdash; smart shopping</span>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Support</a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </footer>
+
+  </div>
+  <!-- end container -->
+</body>
+</html>

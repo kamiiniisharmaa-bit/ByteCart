@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ByteCart · Terms of Service</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background: #f4f7fb;
+      color: #0f1a2c;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== NAV (matching home page) ===== */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 20px 0;
+      border-bottom: 1px solid #dce3ec;
+      background: #ffffff;
+      border-radius: 0 0 28px 28px;
+      box-shadow: 0 4px 12px rgba(0, 20, 30, 0.04);
+      margin-bottom: 40px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #0f1a2c;
+      text-decoration: none;
+    }
+
+    .logo i {
+      color: #1e7b85;
+      font-size: 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1e2b3c;
+      transition: color 0.2s;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #1e7b85;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-actions i {
+      font-size: 1.4rem;
+      color: #1e2b3c;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .nav-actions i:hover {
+      color: #1e7b85;
+    }
+
+    .cart-badge {
+      position: relative;
+    }
+
+    .cart-badge::after {
+      content: '3';
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background: #1e7b85;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 30px;
+    }
+
+    /* ===== TERMS CONTENT ===== */
+    .terms-wrapper {
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 48px 56px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e6ecf3;
+      margin-bottom: 40px;
+    }
+
+    .terms-header {
+      border-bottom: 2px solid #eef2f8;
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .terms-header h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #0f1a2c;
+    }
+
+    .terms-header h1 i {
+      color: #1e7b85;
+      margin-right: 12px;
+    }
+
+    .terms-header .last-updated {
+      color: #4a5a6e;
+      font-size: 0.95rem;
+      background: #f4f7fb;
+      padding: 6px 18px;
+      border-radius: 60px;
+    }
+
+    .terms-section {
+      margin-bottom: 32px;
+    }
+
+    .terms-section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #0f1a2c;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .terms-section h2 i {
+      color: #1e7b85;
+      font-size: 1.3rem;
+      width: 28px;
+    }
+
+    .terms-section p {
+      color: #2d4055;
+      margin-bottom: 12px;
+      padding-left: 38px;
+    }
+
+    .terms-section ul {
+      padding-left: 62px;
+      margin: 8px 0 16px;
+      color: #2d4055;
+      list-style-type: disc;
+    }
+
+    .terms-section ul li {
+      margin-bottom: 6px;
+    }
+
+    .terms-section strong {
+      color: #0f1a2c;
+    }
+
+    .highlight-box {
+      background: #f4f9fe;
+      border-left: 5px solid #1e7b85;
+      padding: 18px 28px;
+      border-radius: 16px;
+      margin: 24px 0 8px 38px;
+      color: #1e2b3c;
+    }
+
+    .highlight-box i {
+      color: #1e7b85;
+      margin-right: 8px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      color: #1e7b85;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+      padding: 6px 0;
+    }
+
+    .back-link:hover {
+      border-bottom-color: #1e7b85;
+    }
+
+    /* ===== FOOTER (matching) ===== */
+    .footer {
+      border-top: 1px solid #dce3ec;
+      padding: 32px 0 24px;
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      color: #2d4055;
+    }
+
+    .footer span i {
+      color: #1e7b85;
+      margin-right: 6px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #2d4055;
+      transition: 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #0f1a2c;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 700px) {
+      .navbar {
+        flex-direction: column;
+        gap: 14px;
+        align-items: stretch;
+        border-radius: 0 0 18px 18px;
+      }
+      .nav-links {
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .nav-actions {
+        justify-content: center;
+      }
+      .terms-wrapper {
+        padding: 28px 20px;
+      }
+      .terms-header h1 {
+        font-size: 1.9rem;
+      }
+      .terms-section p,
+      .terms-section ul,
+      .highlight-box {
+        padding-left: 0;
+        margin-left: 0;
+      }
+      .terms-section h2 i {
+        width: auto;
+      }
+      .highlight-box {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .terms-wrapper {
+        padding: 20px 16px;
+      }
+      .footer {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- ===== NAV ===== -->
+    <header class="navbar">
+      <a href="#" class="logo">
+        <i class="fas fa-cube"></i> ByteCart
+      </a>
+      <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+      </div>
+      <div class="nav-actions">
+        <i class="fas fa-search"></i>
+        <i class="fas fa-heart"></i>
+        <span class="cart-badge"><i class="fas fa-shopping-bag"></i></span>
+      </div>
+    </header>
+
+    <!-- ===== TERMS PAGE ===== -->
+    <div class="terms-wrapper">
+      <div class="terms-header">
+        <h1><i class="fas fa-gavel"></i> Terms of Service</h1>
+        <span class="last-updated"><i class="far fa-calendar-alt"></i> Last updated: June 19, 2026</span>
+      </div>
+
+      <!-- Intro -->
+      <div class="terms-section">
+        <p style="padding-left: 0; font-size: 1.05rem;">
+          Welcome to <strong>ByteCart</strong>. By using our platform, you agree to the following terms. 
+          Please read them carefully.
+        </p>
+      </div>
+
+      <!-- 1. Acceptance -->
+      <div class="terms-section">
+        <h2><i class="fas fa-check-circle"></i> 1. Acceptance of Terms</h2>
+        <p>By accessing or using the ByteCart website, mobile app, or any related services (collectively, the "Service"), you agree to be bound by these Terms of Service and our Privacy Policy. If you do not agree, please do not use the Service.</p>
+      </div>
+
+      <!-- 2. Account -->
+      <div class="terms-section">
+        <h2><i class="fas fa-user-cog"></i> 2. Account & Registration</h2>
+        <p>To make purchases or access certain features, you may need to create an account. You are responsible for maintaining the confidentiality of your login credentials and for all activities under your account.</p>
+        <ul>
+          <li>You must be at least 18 years old or have parental consent.</li>
+          <li>You agree to provide accurate, current, and complete information.</li>
+          <li>ByteCart reserves the right to suspend or terminate accounts that violate these terms.</li>
+        </ul>
+      </div>
+
+      <!-- 3. Orders & Payments -->
+      <div class="terms-section">
+        <h2><i class="fas fa-credit-card"></i> 3. Orders, Pricing & Payments</h2>
+        <p>All orders placed through ByteCart are subject to acceptance and availability. We strive to display accurate pricing, but errors may occur. If we discover an error in the price of an item you ordered, we will notify you and give you the option to cancel or reconfirm at the correct price.</p>
+        <ul>
+          <li>Payment must be received in full before order fulfillment.</li>
+          <li>We accept major credit cards, digital wallets, and other payment methods as shown at checkout.</li>
+          <li>Sales tax and shipping fees will be added where applicable.</li>
+        </ul>
+        <div class="highlight-box">
+          <i class="fas fa-shield-alt"></i> <strong>Secure transactions:</strong> All payments are processed through PCI-compliant gateways. ByteCart does not store full payment details.
+        </div>
+      </div>
+
+      <!-- 4. Shipping & Returns -->
+      <div class="terms-section">
+        <h2><i class="fas fa-truck"></i> 4. Shipping & Returns</h2>
+        <p>Shipping times are estimates and may vary. We partner with reliable carriers to deliver your orders. If an item is damaged or defective, you may return it within 30 days of delivery for a refund or exchange, subject to our return policy.</p>
+        <ul>
+          <li>Return shipping costs may be covered for defective items.</li>
+          <li>Items must be in original packaging and condition for a full refund.</li>
+          <li>Please contact support@bytecart.com for return instructions.</li>
+        </ul>
+      </div>
+
+      <!-- 5. Intellectual Property -->
+      <div class="terms-section">
+        <h2><i class="fas fa-copyright"></i> 5. Intellectual Property</h2>
+        <p>All content on ByteCart — including text, graphics, logos, images, and software — is the property of ByteCart or its content suppliers and is protected by copyright, trademark, and other laws. You may not reproduce, distribute, or create derivative works without explicit written permission.</p>
+      </div>
+
+      <!-- 6. Prohibited Conduct -->
+      <div class="terms-section">
+        <h2><i class="fas fa-ban"></i> 6. Prohibited Conduct</h2>
+        <p>You agree not to:</p>
+        <ul>
+          <li>Use the Service for any unlawful purpose or in any way that could harm ByteCart or its users.</li>
+          <li>Attempt to gain unauthorized access to any systems or networks.</li>
+          <li>Introduce malware, viruses, or other harmful code.</li>
+          <li>Engage in any activity that interferes with or disrupts the Service.</li>
+        </ul>
+      </div>
+
+      <!-- 7. Disclaimer & Limitation -->
+      <div class="terms-section">
+        <h2><i class="fas fa-exclamation-triangle"></i> 7. Disclaimer of Warranties</h2>
+        <p>The Service is provided "as is" and "as available" without warranties of any kind, either express or implied. ByteCart does not guarantee that the Service will be uninterrupted, secure, or error-free. To the fullest extent permitted by law, ByteCart disclaims all warranties, including merchantability, fitness for a particular purpose, and non-infringement.</p>
+        <div class="highlight-box" style="border-left-color: #b91c1c; background: #fef6f6;">
+          <i class="fas fa-gavel" style="color: #b91c1c;"></i> <strong>Limitation of liability:</strong> In no event shall ByteCart be liable for any indirect, incidental, special, or consequential damages arising from your use of the Service.
+        </div>
+      </div>
+
+      <!-- 8. Governing Law -->
+      <div class="terms-section">
+        <h2><i class="fas fa-balance-scale"></i> 8. Governing Law</h2>
+        <p>These Terms shall be governed by and construed in accordance with the laws of the State of California, without regard to conflict of law principles. Any legal action arising out of these Terms shall be brought exclusively in the courts of San Francisco County.</p>
+      </div>
+
+      <!-- 9. Changes -->
+      <div class="terms-section">
+        <h2><i class="fas fa-edit"></i> 9. Changes to Terms</h2>
+        <p>ByteCart reserves the right to update or modify these Terms at any time. We will post the revised version on this page and update the "Last updated" date. Your continued use of the Service after any changes constitutes acceptance of the new Terms.</p>
+      </div>
+
+      <!-- 10. Contact -->
+      <div class="terms-section" style="margin-bottom: 0;">
+        <h2><i class="fas fa-envelope"></i> 10. Contact Us</h2>
+        <p>If you have questions about these Terms, please contact us at:</p>
+        <p style="padding-left: 38px; background: #f4f7fb; border-radius: 16px; padding: 14px 28px; display: inline-block;">
+          <i class="fas fa-envelope" style="color: #1e7b85; margin-right: 8px;"></i> legal@bytecart.com
+        </p>
+        <br />
+        <a href="#" class="back-link"><i class="fas fa-arrow-left"></i> Back to home</a>
+      </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <span><i class="fas fa-cube"></i> ByteCart &mdash; smart shopping</span>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Support</a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </footer>
+
+  </div>
+  <!-- end container -->
+</body>
+</html>
